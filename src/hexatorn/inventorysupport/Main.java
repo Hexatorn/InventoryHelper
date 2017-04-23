@@ -12,12 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Wsparcie Inwentaryzacji");
-        primaryStage.setScene(new Scene(root, 500, 275));
+        primaryStage.setScene(new Scene(root, 680, 275));
+        primaryStage.setMinWidth(700);
+        primaryStage.setMaxWidth(700);
         primaryStage.show();
 
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Open Resource File");
-//        fileChooser.showOpenDialog(primaryStage);
     }
 
 

@@ -4,11 +4,13 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hexatorn.inventorysupport.Controller">
+<StackPane fx:id="stackPane" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="680.0" prefHeight="400.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hexatorn.inventorysupport.Controller">
    <children>
       <Label text="Wczytaj plik spis z natury">
          <StackPane.margin>
@@ -17,7 +19,7 @@
       </Label>
       <TextField fx:id="tfPatchToFile01" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onAction="#onActionClearTextAtFirstClick" onMouseClicked="#onActionClearTextAtFirstClick" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets bottom="30.0" left="10.0" top="30.0" />
+            <Insets left="10.0" top="30.0" />
          </StackPane.margin>
          <font>
             <Font size="10.0" />
@@ -36,6 +38,101 @@
             <Font size="9.0" />
          </font>
       </Button>
+      <Label text="Wczytaj plik ze sprzedażą">
+         <StackPane.margin>
+            <Insets left="10.0" top="55.0" />
+         </StackPane.margin>
+      </Label>
+      <TextField fx:id="tfPatchToFile011" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onAction="#onActionClearTextAtFirstClick" onMouseClicked="#onActionClearTextAtFirstClick" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="10.0" top="75.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="btnLoadFile011" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadListOfNature" prefHeight="20.0" text="..." wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="9.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="315.0" top="75.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="tfPatchToFile012" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onAction="#onActionClearTextAtFirstClick" onMouseClicked="#onActionClearTextAtFirstClick" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="350.0" top="30.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label text="Wczytaj plik ze stanem komisowym">
+         <StackPane.margin>
+            <Insets left="350.0" top="10.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="btnLoadFile012" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadListOfNature" prefHeight="20.0" text="..." wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="9.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="655.0" top="30.0" />
+         </StackPane.margin>
+      </Button>
+      <Label text="Wczytaj plik ze stanem nie komisowym">
+         <StackPane.margin>
+            <Insets left="350.0" top="55.0" />
+         </StackPane.margin>
+      </Label>
+      <TextField fx:id="tfPatchToFile0121" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onAction="#onActionClearTextAtFirstClick" onMouseClicked="#onActionClearTextAtFirstClick" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="350.0" top="75.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="btnLoadFile0121" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadListOfNature" prefHeight="20.0" text="..." wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="9.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="655.0" top="75.0" />
+         </StackPane.margin>
+      </Button>
+      <Label text="Tabelka">
+         <StackPane.margin>
+            <Insets left="10.0" top="100.0" />
+         </StackPane.margin>
+      </Label>
+      <TableView prefHeight="260.0" prefWidth="680.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+         <StackPane.margin>
+            <Insets bottom="30.0" left="10.0" right="10.0" top="120.0" />
+         </StackPane.margin>
+      </TableView>
    </children>
    <opaqueInsets>
       <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
