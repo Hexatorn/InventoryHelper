@@ -1,8 +1,13 @@
 package hexatorn.inventorysupport;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 
 import javax.swing.*;
@@ -20,6 +25,8 @@ public class Controller {
     @FXML
     private Button btnLoadFile04;
     @FXML
+    private Button btnLoadData;
+    @FXML
     private TextField tfPatchToFile01;
     @FXML
     private TextField tfPatchToFile02;
@@ -29,12 +36,48 @@ public class Controller {
     private TextField tfPatchToFile04;
     @FXML
     private StackPane stackPane;
+    @FXML
+    private TableView<Row> tabelView;
+
+    @FXML
+    private TableColumn<Row,Integer> tbColumnId;
+    @FXML
+    private TableColumn<Row,String> tbColumnKodSKU;
+    @FXML
+    private TableColumn<Row,Integer> tbColumnLoN;
+    @FXML
+    private TableColumn<Row,Integer> tbColumnWM;
+
 
     private static MyBoolean firstClickToTfPatchToFile01 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile02 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile03 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
+    private ObservableList<Row> getRows(){
+        ObservableList<Row> rows = FXCollections.observableArrayList();
+        rows.add(new Row("ML2005",20,2));
+        rows.add(new Row("ML2006",10,-1));
+        rows.add(new Row("ML2007",49,-5));
+        rows.add(new Row("ML2008",25,7));
+        return rows;
+    }
+
+    @FXML
+    public void onActionTest(){
+        System.out.println("test");
+        tbColumnId.setCellValueFactory(new PropertyValueFactory<Row, Integer>("id"));
+        tbColumnKodSKU.setCellValueFactory(new PropertyValueFactory<Row, String>("kodSKU"));
+        tbColumnLoN.setCellValueFactory(new PropertyValueFactory<Row, Integer>("qtyLoN"));
+        tbColumnWM.setCellValueFactory(new PropertyValueFactory<Row, Integer>("sqyWM"));
+
+        ObservableList ol =  tabelView.getColumns();
+
+
+        tabelView.setEditable(true);
+        tabelView.setItems(getRows());
+        //tabelView.getColumns().addAll(tbColumnId,tbColumnKodSKU,tbColumnLoN,tbColumnWM);
+    }
 
     @FXML
     public void onActionLoadListOfNature(){

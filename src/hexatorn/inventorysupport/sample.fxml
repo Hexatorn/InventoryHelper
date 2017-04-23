@@ -124,12 +124,12 @@
             <Insets left="10.0" top="100.0" />
          </StackPane.margin>
       </Label>
-      <TableView prefHeight="250.0" prefWidth="740.0">
+      <TableView fx:id="tabelView" prefHeight="250.0" prefWidth="740.0">
         <columns>
-            <TableColumn prefWidth="35.0" text="# id" />
-          <TableColumn prefWidth="100.0" text="Kod" />
-          <TableColumn prefWidth="75.0" text="Spis z natury" />
-            <TableColumn prefWidth="75.0" text="Ruchy magazynowe" />
+            <TableColumn fx:id="tbColumnId" prefWidth="35.0" text="# id" />
+          <TableColumn fx:id="tbColumnKodSKU" prefWidth="100.0" text="Kod" />
+          <TableColumn fx:id="tbColumnLoN" prefWidth="75.0" text="Spis z natury" />
+            <TableColumn fx:id="tbColumnWM" prefWidth="75.0" text="Ruchy magazynowe" />
             <TableColumn minWidth="6.0" prefWidth="75.0" text="Poprawiony spis z natury" />
             <TableColumn minWidth="0.0" prefWidth="75.0" text="Stany komis" />
             <TableColumn prefWidth="75.0" text="Różnice komis" />
@@ -137,9 +137,14 @@
             <TableColumn prefWidth="75.0" text="Różnice nie komis" />
         </columns>
          <StackPane.margin>
-            <Insets bottom="30.0" left="10.0" right="10.0" top="120.0" />
+            <Insets bottom="35.0" left="10.0" right="10.0" top="120.0" />
          </StackPane.margin>
       </TableView>
+      <Button fx:id="btnLoadData" mnemonicParsing="false" onMouseClicked="#onActionTest" text="Load" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="5.0" left="10.0" />
+         </StackPane.margin>
+      </Button>
    </children>
    <opaqueInsets>
       <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
