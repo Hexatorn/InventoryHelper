@@ -36,45 +36,92 @@ public class Controller {
         new Row("ML2005",20,2),
         new Row("ML2006",10,-1),
         new Row("ML2007",49,-5),
-        new Row("ML2008",25,7)
+        new Row("ML2008",25,7),
+        new Row("ML3005",0,0),
+        new Row("ML4006",5,-1),
+        new Row("ML5007",3,0),
+        new Row("ML6008",25,7),
+        new Row("ML7005",20,2),
+        new Row("ML8006",10,-1),
+        new Row("ML9007",49,-5),
+        new Row("104008",25,7)
     );
 
     @FXML
     public void onActionLoad(){
-        LoadTable();
+        loadTable();
     }
 
-    private void LoadTable(){
+    private void loadTable(){
 
         TableColumn tbColumnId = new TableColumn("ID");
         tbColumnId.setMinWidth(40);
+        tbColumnId.setPrefWidth(40);
+        tbColumnId.setMaxWidth(70);
         tbColumnId.setCellValueFactory(new PropertyValueFactory<Row, Integer>("id"));
 
 
         TableColumn tbColumnKodSKU = new TableColumn("SKU");
+        tbColumnKodSKU.setPrefWidth(150);
         tbColumnKodSKU.setMinWidth(150);
+        tbColumnKodSKU.setMaxWidth(200);
         tbColumnKodSKU.setCellValueFactory(
                 new PropertyValueFactory<Row, String>("kodSKU"));
 
-        TableColumn tbColumnLoN = new TableColumn("Spis z Natury");
-        tbColumnLoN.setMinWidth(90);
+        TableColumn tbColumnLoN = new TableColumn("    Spis\nz Natury");
+        tbColumnLoN.setMinWidth(70);
         tbColumnLoN.setCellValueFactory(
                 new PropertyValueFactory<Row, Integer>("qtyListOfNature"));
 
-        TableColumn tbColumnWM = new TableColumn("Ruchy Magazynowe");
-        tbColumnWM.setMinWidth(90);
+        TableColumn tbColumnWM = new TableColumn("       Ruchy\nMagazynowe");
+        tbColumnWM.setMinWidth(70);
         tbColumnWM.setCellValueFactory(
                 new PropertyValueFactory<Row, Integer>("qtyWerhouseMovement"));
 
-        TableColumn tbColumnCurrentStock = new TableColumn("Stock Aktualny");
-        tbColumnCurrentStock.setMinWidth(90);
+        TableColumn tbColumnCurrentStock = new TableColumn("    Stock\nAktualny");
+        tbColumnCurrentStock.setMinWidth(70);
         tbColumnCurrentStock.setCellValueFactory(
                 new PropertyValueFactory<Row, Integer>("qtyCurrentStock"));
+
+        TableColumn tbColumnForeignStock = new TableColumn("    Stock\nMg. Komis");
+        tbColumnForeignStock.setMinWidth(70);
+        tbColumnForeignStock.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("qtyForeignStock"));
+
+        TableColumn tbColumnForeignRW = new TableColumn("    RW\nMg. Komis");
+        tbColumnForeignRW.setMinWidth(70);
+        tbColumnForeignRW.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("foreignRW"));
+
+        TableColumn tbColumnOwnStock = new TableColumn("    Stock\nMg. Własny");
+        tbColumnOwnStock.setMinWidth(70);
+        tbColumnOwnStock.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("qtyOwnStock"));
+
+        TableColumn tbColumnOwnRW = new TableColumn("    RW\nMg. Własny");
+        tbColumnOwnRW.setMinWidth(70);
+        tbColumnOwnRW.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("ownRW"));
+
+        TableColumn tbColumnOwnPW = new TableColumn("    PW\nMg. Własny");
+        tbColumnOwnPW.setMinWidth(70);
+        tbColumnOwnPW.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("ownPW"));
 
         tabelView.setEditable(true);
         tabelView.setItems(rows);
         tabelView.getColumns().clear();
-        tabelView.getColumns().addAll(tbColumnId,tbColumnKodSKU,tbColumnLoN,tbColumnWM,tbColumnCurrentStock);
+        tabelView.getColumns().addAll(
+                tbColumnId,
+                tbColumnKodSKU,
+                tbColumnLoN,
+                tbColumnWM,
+                tbColumnCurrentStock,
+                tbColumnForeignStock,
+                tbColumnForeignRW,
+                tbColumnOwnStock,
+                tbColumnOwnRW,
+                tbColumnOwnPW);
     }
 
     @FXML
@@ -124,6 +171,10 @@ public class Controller {
             tf.setText(s);
             mb.setB(false);
         }
+    }
+
+    public void initialize(){
+        loadTable();
     }
 
 }

@@ -16,9 +16,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Wsparcie Inwentaryzacji");
-        primaryStage.setScene(new Scene(root, 680, 275));
-        primaryStage.setMinWidth(700);
-        primaryStage.setMaxWidth(700);
+        primaryStage.setScene(new Scene(root, 800, 275));
+        primaryStage.setMinWidth(870);
+        primaryStage.setMaxWidth(870);
         primaryStage.show();
     }
 

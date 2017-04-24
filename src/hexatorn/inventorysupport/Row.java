@@ -9,6 +9,8 @@ package hexatorn.inventorysupport;
     private int id;
     private int qtyListOfNature;
     private int qtyWerhouseMovement;
+    private int qtyForeignStock=0;
+    private int qtyOwnStock=0;
     Row(String kodSKU, int qtyListOfNature, int qtyWerhouseMovement){
         id=idCounter++;
         setKodSKU(kodSKU);
@@ -41,11 +43,54 @@ package hexatorn.inventorysupport;
     }
 
     public int getQtyWerhouseMovement() {
-        System.out.println(qtyWerhouseMovement);
         return qtyWerhouseMovement;
+    }
+
+    public void setQtyForeignStock(int qtyForeignStock) {
+        this.qtyForeignStock = qtyForeignStock;
+    }
+
+    public int getQtyForeignStock() {
+        return qtyForeignStock;
+    }
+    public void setQtyOwnStock(int qtyOwnStock) {
+        this.qtyOwnStock = qtyOwnStock;
+    }
+
+    public int getQtyOwnStock() {
+        return qtyOwnStock;
     }
 
     public int getQtyCurrentStock(){
         return qtyWerhouseMovement + qtyListOfNature;
+    }
+
+    public int getAllStock(){
+        return getQtyForeignStock()+getQtyOwnStock();
+    }
+
+    public int getRW(){
+        if(getQtyForeignStock()-(getQtyCurrentStock()-getQtyOwnStock())<0)
+            return 0;
+        else
+            return getQtyForeignStock()-(getQtyCurrentStock()-getQtyOwnStock());
+    }
+
+    public int getForeignRW(){
+        if(getRW()>getQtyForeignStock())
+            return getQtyForeignStock();
+        else
+            return getRW();
+    }
+
+    public int getOwnRW(){
+        return getRW()-getForeignRW();
+    }
+
+    public int getOwnPW(){
+        if(getQtyCurrentStock()>getAllStock())
+            return getQtyCurrentStock()-getAllStock();
+        else
+            return 0;
     }
 }
