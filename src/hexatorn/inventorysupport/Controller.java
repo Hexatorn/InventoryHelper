@@ -3,29 +3,17 @@ package hexatorn.inventorysupport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
-
 import javax.swing.*;
 
 import java.io.File;
 
 public class Controller {
 
-    @FXML
-    private Button btnLoadFile01;
-    @FXML
-    private Button btnLoadFile02;
-    @FXML
-    private Button btnLoadFile03;
-    @FXML
-    private Button btnLoadFile04;
-    @FXML
-    private Button btnLoadData;
+
     @FXML
     private TextField tfPatchToFile01;
     @FXML
@@ -34,49 +22,59 @@ public class Controller {
     private TextField tfPatchToFile03;
     @FXML
     private TextField tfPatchToFile04;
-    @FXML
-    private StackPane stackPane;
+
     @FXML
     private TableView<Row> tabelView;
-
-    @FXML
-    private TableColumn<Row,Integer> tbColumnId;
-    @FXML
-    private TableColumn<Row,String> tbColumnKodSKU;
-    @FXML
-    private TableColumn<Row,Integer> tbColumnLoN;
-    @FXML
-    private TableColumn<Row,Integer> tbColumnWM;
-
 
     private static MyBoolean firstClickToTfPatchToFile01 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile02 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile03 = new MyBoolean();
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
-    private ObservableList<Row> getRows(){
-        ObservableList<Row> rows = FXCollections.observableArrayList();
-        rows.add(new Row("ML2005",20,2));
-        rows.add(new Row("ML2006",10,-1));
-        rows.add(new Row("ML2007",49,-5));
-        rows.add(new Row("ML2008",25,7));
-        return rows;
-    }
+
+    private ObservableList<Row> rows = FXCollections.observableArrayList(
+        new Row("ML2005",20,2),
+        new Row("ML2006",10,-1),
+        new Row("ML2007",49,-5),
+        new Row("ML2008",25,7)
+    );
 
     @FXML
-    public void onActionTest(){
-        System.out.println("test");
+    public void onActionLoad(){
+        LoadTable();
+    }
+
+    private void LoadTable(){
+
+        TableColumn tbColumnId = new TableColumn("ID");
+        tbColumnId.setMinWidth(40);
         tbColumnId.setCellValueFactory(new PropertyValueFactory<Row, Integer>("id"));
-        tbColumnKodSKU.setCellValueFactory(new PropertyValueFactory<Row, String>("kodSKU"));
-        tbColumnLoN.setCellValueFactory(new PropertyValueFactory<Row, Integer>("qtyLoN"));
-        tbColumnWM.setCellValueFactory(new PropertyValueFactory<Row, Integer>("sqyWM"));
 
-        ObservableList ol =  tabelView.getColumns();
 
+        TableColumn tbColumnKodSKU = new TableColumn("SKU");
+        tbColumnKodSKU.setMinWidth(150);
+        tbColumnKodSKU.setCellValueFactory(
+                new PropertyValueFactory<Row, String>("kodSKU"));
+
+        TableColumn tbColumnLoN = new TableColumn("Spis z Natury");
+        tbColumnLoN.setMinWidth(90);
+        tbColumnLoN.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("qtyListOfNature"));
+
+        TableColumn tbColumnWM = new TableColumn("Ruchy Magazynowe");
+        tbColumnWM.setMinWidth(90);
+        tbColumnWM.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("qtyWerhouseMovement"));
+
+        TableColumn tbColumnCurrentStock = new TableColumn("Stock Aktualny");
+        tbColumnCurrentStock.setMinWidth(90);
+        tbColumnCurrentStock.setCellValueFactory(
+                new PropertyValueFactory<Row, Integer>("qtyCurrentStock"));
 
         tabelView.setEditable(true);
-        tabelView.setItems(getRows());
-        //tabelView.getColumns().addAll(tbColumnId,tbColumnKodSKU,tbColumnLoN,tbColumnWM);
+        tabelView.setItems(rows);
+        tabelView.getColumns().clear();
+        tabelView.getColumns().addAll(tbColumnId,tbColumnKodSKU,tbColumnLoN,tbColumnWM,tbColumnCurrentStock);
     }
 
     @FXML

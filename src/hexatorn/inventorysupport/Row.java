@@ -3,28 +3,49 @@ package hexatorn.inventorysupport;
 /**
  * Created by Hexatorn on 2017-04-23.
  */
-class Row {
+    public class Row {
     private static int idCounter=1;
-    public String kodSKU = "";
-    public int id;
-    public int qtyLoN;
-    public int qtyWM;
-    Row(String kodSKU,int qtyLoN,int qtyWM){
+    private String kodSKU = "null";
+    private int id;
+    private int qtyListOfNature;
+    private int qtyWerhouseMovement;
+    Row(String kodSKU, int qtyListOfNature, int qtyWerhouseMovement){
         id=idCounter++;
         setKodSKU(kodSKU);
-        setQtyLoN(qtyLoN);
-        setQtyWM(qtyWM);
+        setQtyListOfNature(qtyListOfNature);
+        setQtyWerhouseMovement(qtyWerhouseMovement);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setKodSKU(String kodSKU) {
         this.kodSKU = kodSKU;
     }
 
-    public void setQtyLoN(int qtyLoN) {
-        this.qtyLoN = qtyLoN;
+    public String getKodSKU() {
+        return kodSKU;
     }
 
-    public void setQtyWM(int qtyWM) {
-        this.qtyWM = qtyWM;
+    public void setQtyListOfNature(int qtyListOfNature) {
+        this.qtyListOfNature = qtyListOfNature;
+    }
+
+    public int getQtyListOfNature() {
+        return qtyListOfNature;
+    }
+
+    public void setQtyWerhouseMovement(int qtyWerhouseMovement) {
+        this.qtyWerhouseMovement = qtyWerhouseMovement;
+    }
+
+    public int getQtyWerhouseMovement() {
+        System.out.println(qtyWerhouseMovement);
+        return qtyWerhouseMovement;
+    }
+
+    public int getQtyCurrentStock(){
+        return qtyWerhouseMovement + qtyListOfNature;
     }
 }
