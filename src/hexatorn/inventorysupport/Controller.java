@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Controller {
 
@@ -22,7 +23,6 @@ public class Controller {
     private TextField tfPatchToFile03;
     @FXML
     private TextField tfPatchToFile04;
-
     @FXML
     private TableView<Row> tabelView;
 
@@ -32,24 +32,33 @@ public class Controller {
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
 
-    private ObservableList<Row> rows = FXCollections.observableArrayList(
-        new Row("ML2005",20,2),
-        new Row("ML2006",10,-1),
-        new Row("ML2007",49,-5),
-        new Row("ML2008",25,7),
-        new Row("ML3005",0,0),
-        new Row("ML4006",5,-1),
-        new Row("ML5007",3,0),
-        new Row("ML6008",25,7),
-        new Row("ML7005",20,2),
-        new Row("ML8006",10,-1),
-        new Row("ML9007",49,-5),
-        new Row("104008",25,7)
-    );
+    MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\RGIS_00PL51_170420.txt");
+    MyFile fileListWarehouseMoves = new MyFile("");
+    MyFile fileListForegionStock = new MyFile("");
+    MyFile fileListOwnStock = new MyFile("");
+
+
+    private ObservableList<Row> rows = FXCollections.observableArrayList();
+
+//    private ObservableList<Row> rows = FXCollections.observableArrayList(
+//        new Row("ML2005",20,2),
+//        new Row("ML2006",10,-1),
+//        new Row("ML2007",49,-5),
+//        new Row("ML2008",25,7),
+//        new Row("ML3005",0,0),
+//        new Row("ML4006",5,-1),
+//        new Row("ML5007",3,0),
+//        new Row("ML6008",25,7),
+//        new Row("ML7005",20,2),
+//        new Row("ML8006",10,-1),
+//        new Row("ML9007",49,-5),
+//        new Row("104008",25,7)
+//    );
 
     @FXML
-    public void onActionLoad(){
-        loadTable();
+    public void onActionLoad() throws FileNotFoundException {
+        //loadTable();
+        TextReader.odczyt(fileListOfNature,rows);
     }
 
     private void loadTable(){
@@ -126,25 +135,29 @@ public class Controller {
 
     @FXML
     public void onActionLoadListOfNature(){
-        choseFile(tfPatchToFile01,firstClickToTfPatchToFile01);
+
+        choseFile(tfPatchToFile01,firstClickToTfPatchToFile01,fileListOfNature);
+
     }
     @FXML
     public void onActionLoadWarehouseMovment(){
-        choseFile(tfPatchToFile02,firstClickToTfPatchToFile02);
+        choseFile(tfPatchToFile02,firstClickToTfPatchToFile02,fileListWarehouseMoves);
     }
+    @FXML
     public void onActionLoadForegionStock(){
-        choseFile(tfPatchToFile03,firstClickToTfPatchToFile03);
+        choseFile(tfPatchToFile03,firstClickToTfPatchToFile03,fileListForegionStock);
     }
+    @FXML
     public void onActionLoadOwnStock(){
-        choseFile(tfPatchToFile04,firstClickToTfPatchToFile04);
+        choseFile(tfPatchToFile04,firstClickToTfPatchToFile04,fileListOwnStock);
     }
 
-    private void choseFile(TextField tf, MyBoolean mb){
+    private void choseFile(TextField tf, MyBoolean mb,MyFile f){
         JFileChooser jFileChooser = new JFileChooser();
         if(jFileChooser.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
-            File file = jFileChooser.getSelectedFile();
+            f.setFile(jFileChooser.getSelectedFile());
             mb.setB(true);
-            changeTextAtFirstClick(tf,mb,file.getAbsolutePath());
+            changeTextAtFirstClick(tf,mb,f.getAbsolutePath());
         }
     }
 

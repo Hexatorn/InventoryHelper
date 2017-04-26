@@ -18,6 +18,17 @@ package hexatorn.inventorysupport;
         setQtyWerhouseMovement(qtyWerhouseMovement);
     }
 
+    Row(String kodSKU){
+        id=idCounter++;
+        setKodSKU(kodSKU);
+        setQtyListOfNature(0);
+        setQtyWerhouseMovement(0);
+        setQtyForeignStock(0);
+        setQtyOwnStock(0);
+    }
+
+
+
     public int getId() {
         return id;
     }
