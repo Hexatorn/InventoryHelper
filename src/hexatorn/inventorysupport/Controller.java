@@ -32,7 +32,7 @@ public class Controller {
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
 
-    MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\RGIS_00PL51_170420.txt");
+    MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
     MyFile fileListWarehouseMoves = new MyFile("");
     MyFile fileListForegionStock = new MyFile("");
     MyFile fileListOwnStock = new MyFile("");

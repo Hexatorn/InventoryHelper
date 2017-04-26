@@ -26,7 +26,25 @@ public class TextReader {
         while (in.hasNext()){
             s = in.nextLine();
             line = s.split("\t");
-            obsList.add(new Row(line[0]));
+
+            Boolean kodIstniejeWTabeli = false;
+            String skuToCheck = line[0];
+            line = line[1].split(",");
+            int qty = Integer.parseInt(line[0]);
+
+            for (Row r :obsList) {
+                if(r.getKodSKU().equals(skuToCheck)) {
+                    System.out.println("dubel"+r.getKodSKU());
+                    kodIstniejeWTabeli = true;
+                    r.setQtyListOfNature(r.getQtyListOfNature() + qty);
+                    break;
+                }
+            }
+            if(kodIstniejeWTabeli==false) {
+                Row row = new Row(skuToCheck);
+                row.setQtyListOfNature(qty);
+                obsList.add(row);
+            }
         }
     }
 }
