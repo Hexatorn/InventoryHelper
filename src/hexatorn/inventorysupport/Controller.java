@@ -154,6 +154,7 @@ public class Controller {
     public void onActionLoadListOfNature() throws FileNotFoundException {
         choseFile(tfPatchToFile01,firstClickToTfPatchToFile01,fileListOfNature);
         if(fileListOfNature.getAbsolutePath()=="")
+
             ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
     }
     @FXML
