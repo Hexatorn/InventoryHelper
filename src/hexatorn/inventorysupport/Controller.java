@@ -122,6 +122,35 @@ public class Controller {
     }
 
     @FXML
+    public void onActionExportCurentForegionStock(){
+        MyFile file = choseFileToSave();
+        if(file!=null){
+            System.out.println("piszemy");
+        }
+
+    }
+    @FXML
+    public void onActionExportCurentOwnStock(){
+        MyFile file = choseFileToSave();
+        if(file!=null){
+            System.out.println("piszemy");
+        }
+    }
+
+    private MyFile choseFileToSave(){
+        JFileChooser jFileChooser = new JFileChooser();
+        if(jFileChooser.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
+            MyFile file = new MyFile(jFileChooser.getSelectedFile().getAbsolutePath());
+            if(!file.getAbsolutePath().contains(".txt")){
+                file.setPatchfile(file.getAbsolutePath()+".txt");
+            }
+            return file;
+        }
+        return null;
+    }
+
+
+    @FXML
     public void onActionLoadListOfNature(){
 
         choseFile(tfPatchToFile01,firstClickToTfPatchToFile01,fileListOfNature);
