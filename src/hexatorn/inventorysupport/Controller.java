@@ -8,9 +8,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.*;
-
-import java.io.File;
+import jxl.read.biff.BiffException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Controller {
 
@@ -33,32 +33,18 @@ public class Controller {
 
 
     MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
-    MyFile fileListWarehouseMoves = new MyFile("");
+    MyFile fileListWarehouseMoves = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\Ruchy Magazynowe.xls");
     MyFile fileListForegionStock = new MyFile("");
     MyFile fileListOwnStock = new MyFile("");
 
 
     private ObservableList<Row> rows = FXCollections.observableArrayList();
 
-//    private ObservableList<Row> rows = FXCollections.observableArrayList(
-//        new Row("ML2005",20,2),
-//        new Row("ML2006",10,-1),
-//        new Row("ML2007",49,-5),
-//        new Row("ML2008",25,7),
-//        new Row("ML3005",0,0),
-//        new Row("ML4006",5,-1),
-//        new Row("ML5007",3,0),
-//        new Row("ML6008",25,7),
-//        new Row("ML7005",20,2),
-//        new Row("ML8006",10,-1),
-//        new Row("ML9007",49,-5),
-//        new Row("104008",25,7)
-//    );
-
     @FXML
-    public void onActionLoad() throws FileNotFoundException {
+    public void onActionLoad() throws IOException, BiffException {
         //loadTable();
-        TextReader.odczyt(fileListOfNature,rows);
+        ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
+        ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
     }
 
     private void loadTable(){

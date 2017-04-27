@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Created by Hexatorn on 2017-04-25.
  */
-public class TextReader {
+class ReadListOfNatureFromTextFile {
 
     static String linia = "";
     static String kod = "";
@@ -20,7 +20,7 @@ public class TextReader {
        System.out.println(file.getAbsolutePath());
         Scanner in = new Scanner(file.getFile());
         Scanner skaner = new Scanner("");
-        String s = "";
+        String s;
         String[] line;
         
         while (in.hasNext()){
@@ -40,7 +40,7 @@ public class TextReader {
                     break;
                 }
             }
-            if(kodIstniejeWTabeli==false) {
+            if(!kodIstniejeWTabeli) {
                 Row row = new Row(skuToCheck);
                 row.setQtyListOfNature(qty);
                 obsList.add(row);
