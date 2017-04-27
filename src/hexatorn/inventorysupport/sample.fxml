@@ -138,7 +138,7 @@
             <Insets bottom="5.0" left="70.0" />
          </StackPane.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#onActionExportCurentOwnStock" text="Eksport Pliku Spis z Natury MagazynWłasny" StackPane.alignment="BOTTOM_LEFT">
+      <Button mnemonicParsing="false" onAction="#onActionExportCurentOwnStock" text="Eksport Pliku Spis z Natury Magazyn Własny" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="5.0" left="320.0" />
          </StackPane.margin>

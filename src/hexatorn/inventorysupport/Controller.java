@@ -42,7 +42,6 @@ public class Controller {
 
     @FXML
     public void onActionLoad() throws IOException, BiffException {
-        //loadTable();
         ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
         ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
         ReadForeignStockFromXLSFile.odczyt(fileListForegionStock,rows);
@@ -122,18 +121,18 @@ public class Controller {
     }
 
     @FXML
-    public void onActionExportCurentForegionStock(){
+    public void onActionExportCurentForegionStock() throws FileNotFoundException {
         MyFile file = choseFileToSave();
         if(file!=null){
-            System.out.println("piszemy");
+            SaveForegionStockToTextFile.WriteToTextFile(file,rows);
         }
 
     }
     @FXML
-    public void onActionExportCurentOwnStock(){
+    public void onActionExportCurentOwnStock() throws FileNotFoundException {
         MyFile file = choseFileToSave();
         if(file!=null){
-            System.out.println("piszemy");
+            SaveOwnStockToTextFile.WriteToTextFile(file,rows);
         }
     }
 
