@@ -46,6 +46,7 @@ public class Controller {
         ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
         ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
         ReadForeignStockFromXLSFile.odczyt(fileListForegionStock,rows);
+        ReadOwnStockFromXLSFile.odczyt(fileListOwnStock,rows);
     }
 
     private void loadTable(){
