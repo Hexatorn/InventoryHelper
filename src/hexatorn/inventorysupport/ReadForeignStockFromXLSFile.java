@@ -1,22 +1,18 @@
 package hexatorn.inventorysupport;
 
 import javafx.collections.ObservableList;
-import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Hexatorn on 2017-04-26.
+ * Created by Hexatorn on 2017-04-27.
  */
-class ReadWerhouseMovementFromXLSFile {
-
-
+class ReadForeignStockFromXLSFile {
     static void odczyt(MyFile file, ObservableList<Row> obsList) throws IOException, BiffException {
-        System.out.println("Wczytywanie Rócghów Magazynowych");
+        System.out.println("odczyt Stanu Obcego");
         System.out.println(file.getAbsolutePath());
 
         Workbook skoroszyt = Workbook.getWorkbook(file.getFile());
@@ -24,21 +20,20 @@ class ReadWerhouseMovementFromXLSFile {
 
         for(int i = 2;!arkusz.getCell(0, i).getContents().equals("PODSUMOWANIE");i++){
             String skuToCheck = arkusz.getCell(0,i).getContents();
-            int wartoscQtyPlus = Integer.parseInt(arkusz.getCell(6,i).getContents());
-            int wartoscQtyMinus = Integer.parseInt(arkusz.getCell(8,i).getContents())*-1;
+            int qty = Integer.parseInt(arkusz.getCell(6,i).getContents());
             Boolean kodIstniejeWTabeli = false;
-            if(wartoscQtyMinus+wartoscQtyPlus==0)
+            if(qty==0)
                 continue;
             for (Row r :obsList) {
                 if(r.getKodSKU().equals(skuToCheck)) {
                     kodIstniejeWTabeli = true;
-                    r.setQtyWerhouseMovement(r.getQtyWerhouseMovement()+wartoscQtyPlus+wartoscQtyMinus);
+                    r.setQtyForeignStock(r.getQtyForeignStock()+qty);
                     break;
                 }
             }
             if(!kodIstniejeWTabeli) {
                 Row row = new Row(skuToCheck);
-                row.setQtyWerhouseMovement(wartoscQtyPlus+wartoscQtyMinus);
+                row.setQtyForeignStock(qty);
                 obsList.add(row);
                 System.out.println("new "+skuToCheck );
             }
@@ -46,5 +41,4 @@ class ReadWerhouseMovementFromXLSFile {
         skoroszyt.close();
         System.out.println("Odczyt zakończony sukcesem.");
     }
-
 }

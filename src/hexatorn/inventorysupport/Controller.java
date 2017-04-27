@@ -32,10 +32,10 @@ public class Controller {
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
 
-    MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
-    MyFile fileListWarehouseMoves = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\Ruchy Magazynowe.xls");
-    MyFile fileListForegionStock = new MyFile("");
-    MyFile fileListOwnStock = new MyFile("");
+    private MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
+    private MyFile fileListWarehouseMoves = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\Ruchy Magazynowe.xls");
+    private MyFile fileListForegionStock = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\StanyKomis.xls");
+    private MyFile fileListOwnStock = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\StanyWłasne.xls");
 
 
     private ObservableList<Row> rows = FXCollections.observableArrayList();
@@ -45,6 +45,7 @@ public class Controller {
         //loadTable();
         ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
         ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
+        ReadForeignStockFromXLSFile.odczyt(fileListForegionStock,rows);
     }
 
     private void loadTable(){

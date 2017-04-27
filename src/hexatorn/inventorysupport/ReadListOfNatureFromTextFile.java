@@ -17,7 +17,8 @@ class ReadListOfNatureFromTextFile {
 
 
     static void odczyt (MyFile file, ObservableList<Row> obsList) throws FileNotFoundException {
-       System.out.println(file.getAbsolutePath());
+        System.out.println("Wczytywanie spisu z Natury");
+        System.out.println(file.getAbsolutePath());
         Scanner in = new Scanner(file.getFile());
         Scanner skaner = new Scanner("");
         String s;
@@ -46,5 +47,6 @@ class ReadListOfNatureFromTextFile {
                 obsList.add(row);
             }
         }
+        System.out.println("Odczyt zakończony sukcesem");
     }
 }
