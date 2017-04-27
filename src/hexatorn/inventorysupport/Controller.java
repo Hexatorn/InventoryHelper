@@ -32,10 +32,11 @@ public class Controller {
     private static MyBoolean firstClickToTfPatchToFile04 = new MyBoolean();
 
 
-    private MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
-    private MyFile fileListWarehouseMoves = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\Ruchy Magazynowe.xls");
-    private MyFile fileListForegionStock = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\StanyKomis.xls");
-    private MyFile fileListOwnStock = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\StanyWłasne.xls");
+//    private MyFile fileListOfNature = new MyFile("C:\\Users\\Hexatorn\\Desktop\\INWENTARYZACJA SKL 20417\\FOCUS ZIEONA GÓRA 20417\\test.txt");
+    private MyFile fileListOfNature = new MyFile("");
+    private MyFile fileListWarehouseMoves = new MyFile("");
+    private MyFile fileListForegionStock = new MyFile("");
+    private MyFile fileListOwnStock = new MyFile("");
 
 
     private ObservableList<Row> rows = FXCollections.observableArrayList();
@@ -150,22 +151,28 @@ public class Controller {
 
 
     @FXML
-    public void onActionLoadListOfNature(){
-
+    public void onActionLoadListOfNature() throws FileNotFoundException {
         choseFile(tfPatchToFile01,firstClickToTfPatchToFile01,fileListOfNature);
-
+        if(fileListOfNature.getAbsolutePath()=="")
+            ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
     }
     @FXML
-    public void onActionLoadWarehouseMovment(){
+    public void onActionLoadWarehouseMovment() throws IOException, BiffException {
         choseFile(tfPatchToFile02,firstClickToTfPatchToFile02,fileListWarehouseMoves);
+        if(fileListWarehouseMoves.getAbsolutePath()=="")
+            ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
     }
     @FXML
-    public void onActionLoadForegionStock(){
+    public void onActionLoadForegionStock() throws IOException, BiffException {
         choseFile(tfPatchToFile03,firstClickToTfPatchToFile03,fileListForegionStock);
+        if(fileListForegionStock.getAbsolutePath()=="")
+            ReadForeignStockFromXLSFile.odczyt(fileListForegionStock,rows);
     }
     @FXML
-    public void onActionLoadOwnStock(){
+    public void onActionLoadOwnStock() throws IOException, BiffException {
         choseFile(tfPatchToFile04,firstClickToTfPatchToFile04,fileListOwnStock);
+        if(fileListOwnStock.getAbsolutePath()=="")
+            ReadOwnStockFromXLSFile.odczyt(fileListOwnStock,rows);
     }
 
     private void choseFile(TextField tf, MyBoolean mb,MyFile f){
