@@ -28,6 +28,7 @@ class ReadForeignStockFromXLSFile {
                 if(r.getKodSKU().equals(skuToCheck)) {
                     kodIstniejeWTabeli = true;
                     r.setQtyForeignStock(r.getQtyForeignStock()+qty);
+                    System.out.println("edit "+skuToCheck);
                     break;
                 }
             }

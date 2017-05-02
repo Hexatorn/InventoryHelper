@@ -153,26 +153,26 @@ public class Controller {
     @FXML
     public void onActionLoadListOfNature() throws FileNotFoundException {
         choseFile(tfPatchToFile01,firstClickToTfPatchToFile01,fileListOfNature);
-        if(fileListOfNature.getAbsolutePath()=="")
+        if(fileListOfNature.getAbsolutePath()!="")
 
             ReadListOfNatureFromTextFile.odczyt(fileListOfNature,rows);
     }
     @FXML
     public void onActionLoadWarehouseMovment() throws IOException, BiffException {
         choseFile(tfPatchToFile02,firstClickToTfPatchToFile02,fileListWarehouseMoves);
-        if(fileListWarehouseMoves.getAbsolutePath()=="")
+        if(fileListWarehouseMoves.getAbsolutePath()!="")
             ReadWerhouseMovementFromXLSFile.odczyt(fileListWarehouseMoves ,rows);
     }
     @FXML
     public void onActionLoadForegionStock() throws IOException, BiffException {
         choseFile(tfPatchToFile03,firstClickToTfPatchToFile03,fileListForegionStock);
-        if(fileListForegionStock.getAbsolutePath()=="")
+        if(fileListForegionStock.getAbsolutePath()!="")
             ReadForeignStockFromXLSFile.odczyt(fileListForegionStock,rows);
     }
     @FXML
     public void onActionLoadOwnStock() throws IOException, BiffException {
         choseFile(tfPatchToFile04,firstClickToTfPatchToFile04,fileListOwnStock);
-        if(fileListOwnStock.getAbsolutePath()=="")
+        if(fileListOwnStock.getAbsolutePath()!="")
             ReadOwnStockFromXLSFile.odczyt(fileListOwnStock,rows);
     }
 

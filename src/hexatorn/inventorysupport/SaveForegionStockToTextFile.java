@@ -13,8 +13,7 @@ class SaveForegionStockToTextFile {
     static void WriteToTextFile(MyFile file, ObservableList<Row> obsList) throws FileNotFoundException {
         PrintWriter zapis = new PrintWriter(file.getAbsolutePath());
         for (Row row: obsList) {
-            if(row.getCurentForeignStock()!=0)
-                zapis.println(row.getKodSKU()+"\t"+row.getCurentForeignStock());
+            zapis.println(row.getKodSKU()+"\t"+row.getCurentForeignStock());
         }
         zapis.close();
     }
