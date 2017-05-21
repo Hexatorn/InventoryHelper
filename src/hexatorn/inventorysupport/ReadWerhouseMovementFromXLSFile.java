@@ -25,6 +25,7 @@ class ReadWerhouseMovementFromXLSFile {
         for(int i = 2;!arkusz.getCell(0, i).getContents().equals("PODSUMOWANIE");i++){
             String skuToCheck = arkusz.getCell(0,i).getContents();
             int wartoscQtyPlus = Integer.parseInt(arkusz.getCell(6,i).getContents());
+            System.out.println(wartoscQtyPlus);
             int wartoscQtyMinus = Integer.parseInt(arkusz.getCell(8,i).getContents())*-1;
             Boolean kodIstniejeWTabeli = false;
             if(wartoscQtyMinus+wartoscQtyPlus==0)

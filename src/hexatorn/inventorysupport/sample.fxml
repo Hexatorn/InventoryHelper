@@ -42,7 +42,7 @@
             <Insets left="10.0" top="55.0" />
          </StackPane.margin>
       </Label>
-      <TextField fx:id="tfPatchToFile02" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick02" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+      <TextField fx:id="tfPatchToFile02" alignment="CENTER_RIGHT" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick02" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
          <font>
             <Font size="10.0" />
          </font>
@@ -50,7 +50,7 @@
             <Insets left="10.0" top="75.0" />
          </StackPane.margin>
       </TextField>
-      <Button fx:id="btnLoadFile02" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadWarehouseMovment" prefHeight="20.0" text="..." wrapText="true">
+      <Button fx:id="btnLoadFile02" alignment="CENTER" disable="true" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadWarehouseMovment" prefHeight="20.0" text="..." wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -64,7 +64,7 @@
             <Insets left="315.0" top="75.0" />
          </StackPane.margin>
       </Button>
-      <TextField fx:id="tfPatchToFile03" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick03" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+      <TextField fx:id="tfPatchToFile03" alignment="CENTER_RIGHT" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick03" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
          <font>
             <Font size="10.0" />
          </font>
@@ -77,7 +77,7 @@
             <Insets left="350.0" top="10.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="btnLoadFile03" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadForegionStock" prefHeight="20.0" text="..." wrapText="true">
+      <Button fx:id="btnLoadFile03" alignment="CENTER" disable="true" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadForegionStock" prefHeight="20.0" text="..." wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -96,7 +96,7 @@
             <Insets left="350.0" top="55.0" />
          </StackPane.margin>
       </Label>
-      <TextField fx:id="tfPatchToFile04" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick04" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
+      <TextField fx:id="tfPatchToFile04" alignment="CENTER_RIGHT" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onActionClearTextAtFirstClick04" prefHeight="20.0" prefWidth="300.0" text="wprowadź ścieżkę do pliku">
          <font>
             <Font size="10.0" />
          </font>
@@ -104,7 +104,7 @@
             <Insets left="350.0" top="75.0" />
          </StackPane.margin>
       </TextField>
-      <Button fx:id="btnLoadFile04" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadOwnStock" prefHeight="20.0" text="..." wrapText="true">
+      <Button fx:id="btnLoadFile04" alignment="CENTER" disable="true" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionLoadOwnStock" prefHeight="20.0" text="..." wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

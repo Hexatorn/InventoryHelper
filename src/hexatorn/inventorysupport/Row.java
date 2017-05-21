@@ -104,9 +104,11 @@ package hexatorn.inventorysupport;
         else
             return 0;
     }
+
     public int getCurentForeignStock(){
         return getQtyForeignStock()-getForeignRW();
     }
+
     public int getCurentOwnStock(){
         return getQtyOwnStock()-getOwnRW()+getOwnPW();
     }
